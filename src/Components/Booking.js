@@ -677,7 +677,7 @@ const Contact = styled.p`
 const Info = styled.p`
   font-family: ${(props) => props.theme.Fonts.Poppins};
   color: #a5a5a5;
-  font-size: 12px;
+  font-size: 10px;
 
   @media ${(props) => props.theme.MediaQueries.m.query} {
     font-size: 20px;
