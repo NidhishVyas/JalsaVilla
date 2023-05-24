@@ -5,9 +5,14 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing:border-box;
     scroll-padding: 60px;
+    scroll-behavior: smooth;
     @media ${(props) => props.theme.MediaQueries.l.query} {
       scroll-padding: 0px;
     }
+  }
+
+  html, body {
+    overflow-x: hidden;
   }
 
   body {

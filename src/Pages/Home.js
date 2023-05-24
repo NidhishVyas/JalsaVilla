@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import Hero from "../Images/Hero.jpg";
-import ReviewBg from "../Images/ReviewBg.png";
-import Triangle from "../Images/Triangle.svg";
+// import ReviewBg from "../Images/ReviewBg.png";
+// import Triangle from "../Images/Triangle.svg";
 import HeroVec from "../Images/Hero Triangle.png";
-import Arrow from "../Images/Arrow.svg";
+// import Arrow from "../Images/Arrow.svg";
 import Star from "../Components/Star";
 import Images from "../Components/Images";
 import AmenitiesImg from "../Components/AmenitiesImg";
 import AmenitiesInfo from "../Components/AmenitiesInfo";
 import Booking from "../Components/Booking";
-import Reviews from "../Components/Reviews";
+import ImagePopup from "../Components/ImagePopup";
+// import Reviews from "../Components/Reviews";
 import "../Helper/carousel.css";
 import Footer from "../Components/Footer";
 // import { getAll } from "../Services/user";
-import { toast } from "react-toastify";
-import SwimNight from "../Images/swimnight.jpg";
+// import { toast } from "react-toastify";
+// import SwimNight from "../Images/swimnight.jpg";
 import Swim from "../Images/swim.jpg";
-import VillaBackLong from "../Images/villabacklong.jpg";
+// import VillaBackLong from "../Images/villabacklong.jpg";
 import View from "../Images/view.jpg";
-import Villa from "../Images/Villa.jpg";
-import Villa2 from "../Images/villa2.jpg";
-import Cric from "../Images/cric.jpg";
+// import Villa from "../Images/Villa.jpg";
+// import Villa2 from "../Images/villa2.jpg";
+// import Cric from "../Images/cric.jpg";
 import Back from "../Images/Back.jpg";
-import BackLong from "../Images/backlong.jpg";
+// import BackLong from "../Images/backlong.jpg";
 import Lake from "../Images/Lake.jpg";
-import One from "../Images/3.jpg";
-import Two from "../Images/5.jpg";
-import Three from "../Images/13.jpg";
-import Four from "../Images/19.jpg";
-import Offer from "../Images/Offer.png";
+// import One from "../Images/3.jpg";
+// import Two from "../Images/5.jpg";
+// import Three from "../Images/13.jpg";
+// import Four from "../Images/19.jpg";
+// import Offer from "../Images/Offer.png";
 import Img1 from "../Images/Img1.jpg";
 import Img2 from "../Images/Img2.jpg";
 import Img3 from "../Images/Img3.jpg";
@@ -49,6 +50,7 @@ const Container = styled.main`
 
 const HeroSectionMob = styled.section`
   background-image: url(${Hero});
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.25);
   background-color: #000;
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,6 +61,15 @@ const HeroSectionMob = styled.section`
   @media ${(props) => props.theme.MediaQueries.l.query} {
     display: none;
   }
+`;
+
+const Invisible = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
 `;
 
 const HeroSectionDesk = styled.section`
@@ -204,23 +215,23 @@ const HeroTriangle = styled.img`
     left: -15px;
   }
   &.right {
-    right: -45px;
+    right: -15px;
     rotate: 180deg;
   }
 `;
 
-const HeroArrow = styled.img`
-  position: relative;
-  top: -52px;
+// const HeroArrow = styled.img`
+//   position: relative;
+//   top: -52px;
 
-  &.right {
-    left: 5px;
-  }
-  &.left {
-    right: 50px;
-    rotate: 180deg;
-  }
-`;
+//   &.right {
+//     left: 5px;
+//   }
+//   &.left {
+//     right: 50px;
+//     rotate: 180deg;
+//   }
+// `;
 
 const Menu = styled.div`
   position: absolute;
@@ -333,52 +344,52 @@ const BackImg = styled.div`
   }
 `;
 
-const ReviewsSection = styled.section`
-  background-image: url(${ReviewBg});
-  padding: 10px;
-  margin: 80px auto;
-  height: 500px;
-  position: relative;
-  max-width: 1200px;
-`;
+// const ReviewsSection = styled.section`
+//   background-image: url(${ReviewBg});
+//   padding: 10px;
+//   margin: 80px auto;
+//   height: 500px;
+//   position: relative;
+//   max-width: 1200px;
+// `;
 
-const OfferSection = styled.section`
-  background-image: url(${Offer});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  padding: 10px;
-  margin: 80px auto;
-  height: 180px;
-  position: relative;
-  max-width: 1200px;
-  @media ${(props) => props.theme.MediaQueries.s.query} {
-    height: 280px;
-  }
-  @media ${(props) => props.theme.MediaQueries.m.query} {
-    height: 380px;
-  }
-  @media ${(props) => props.theme.MediaQueries.l.query} {
-    height: 680px;
-  }
-`;
+// const OfferSection = styled.section`
+//   background-image: url(${Offer});
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position: center;
+//   padding: 10px;
+//   margin: 80px auto;
+//   height: 180px;
+//   position: relative;
+//   max-width: 1200px;
+//   @media ${(props) => props.theme.MediaQueries.s.query} {
+//     height: 280px;
+//   }
+//   @media ${(props) => props.theme.MediaQueries.m.query} {
+//     height: 380px;
+//   }
+//   @media ${(props) => props.theme.MediaQueries.l.query} {
+//     height: 680px;
+//   }
+// `;
 
-const TriangleImg = styled.img`
-  position: absolute;
-  left: 50%;
-  height: 110px;
-  width: 10px;
+// const TriangleImg = styled.img`
+//   position: absolute;
+//   left: 50%;
+//   height: 110px;
+//   width: 10px;
 
-  &.top {
-    transform: translateY(-50%) rotate(90deg) matrix(1, 0, 0, -1, 0, 0);
-    top: 0.5%;
-  }
+//   &.top {
+//     transform: translateY(-50%) rotate(90deg) matrix(1, 0, 0, -1, 0, 0);
+//     top: 0.5%;
+//   }
 
-  &.bottom {
-    transform: translateY(50%) rotate(-90deg) matrix(1, 0, 0, -1, 0, 0);
-    bottom: 0.5%;
-  }
-`;
+//   &.bottom {
+//     transform: translateY(50%) rotate(-90deg) matrix(1, 0, 0, -1, 0, 0);
+//     bottom: 0.5%;
+//   }
+// `;
 
 const Features = styled.section`
   display: flex;
@@ -467,8 +478,10 @@ const FeatureInfo = styled.p`
 
 const Home = () => {
   const [book, setBook] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user] = useState(null);
   const [toggle, setToggle] = useState(false);
+  const [model, setModel] = useState(false);
+  const [image, setImage] = useState(null);
 
   const disableScroll = () => {
     console.log("here");
@@ -495,111 +508,206 @@ const Home = () => {
   // }, []);
 
   return (
-    <Container>
-      <Booking drop={book} setBook={setBook} user={user} />
-      <HeroSectionMob>
-        <Menu onClick={() => setToggle(!toggle)}>
-          <box-icon name="menu-alt-right"></box-icon>
-        </Menu>
-        <MenuList className={toggle ? "open" : null}>
-          <NavItems onClick={() => setToggle(!toggle)}>Home</NavItems>
-          <NavItems onClick={() => setToggle(!toggle)}>About</NavItems>
-          <NavItems onClick={() => setToggle(!toggle)}>Feature</NavItems>
-          <NavItems onClick={() => setToggle(!toggle)}>Services</NavItems>
-          <NavItems onClick={() => setToggle(!toggle)}>Contact Us</NavItems>
-          <NavItems onClick={disableScroll}>Book Now</NavItems>
-        </MenuList>
-      </HeroSectionMob>
-      <HeroSectionDesk>
-        <Position className="right">
-          <HeroTriangle src={HeroVec} className="right" alt="Triangle" />
-          {/* <HeroArrow src={Arrow} className="right" alt="Arrow" /> */}
-        </Position>
-        <Position className="left">
-          <HeroTriangle src={HeroVec} className="left" alt="Triangle" />
-          {/* <HeroArrow src={Arrow} className="left" alt="Arrow" /> */}
-        </Position>
+    <>
+      {model && <ImagePopup model={model} setModel={setModel} Image={image} />}
+      <Container>
+        <Booking drop={book} setBook={setBook} user={user} />
+        <HeroSectionMob>
+          <Invisible
+            onClick={() => {
+              setImage(Hero);
+              setModel(true);
+            }}
+          />
+          <Menu onClick={() => setToggle(!toggle)}>
+            <box-icon name="menu-alt-right"></box-icon>
+          </Menu>
+          <MenuList className={toggle ? "open" : null}>
+            <NavItems onClick={() => setToggle(!toggle)} href="#">
+              Home
+            </NavItems>
+            <NavItems onClick={() => setToggle(!toggle)} href="#1">
+              About
+            </NavItems>
+            <NavItems onClick={() => setToggle(!toggle)} href="#2">
+              Feature
+            </NavItems>
+            <NavItems onClick={() => setToggle(!toggle)} href="#3">
+              Services
+            </NavItems>
+            <NavItems onClick={() => setToggle(!toggle)} href="#4">
+              Contact Us
+            </NavItems>
+            <NavItems onClick={disableScroll}>Book Now</NavItems>
+          </MenuList>
+        </HeroSectionMob>
+        <HeroSectionDesk>
+          <Position className="right">
+            <HeroTriangle src={HeroVec} className="right" alt="Triangle" />
+            {/* <HeroArrow src={Arrow} className="right" alt="Arrow" /> */}
+          </Position>
+          <Position className="left">
+            <HeroTriangle src={HeroVec} className="left" alt="Triangle" />
+            {/* <HeroArrow src={Arrow} className="left" alt="Arrow" /> */}
+          </Position>
 
-        <Navbar>
-          <div>
-            <NavItems href="#">Home</NavItems>
+          <Navbar>
+            <div>
+              <NavItems href="#">Home</NavItems>
+            </div>
+            <div>
+              <NavItems href="#1">About</NavItems>
+            </div>
+            <div>
+              <NavItems href="#2">Services</NavItems>
+            </div>
+            <div>
+              <Name>Jalsa</Name>
+            </div>
+            <div>
+              <NavItems href="#3">Feature</NavItems>
+            </div>
+            <div>
+              <NavItems href="#4">Contact Us</NavItems>
+            </div>
+            <div onClick={disableScroll}>
+              <NavBtn>Book Now</NavBtn>
+            </div>
+          </Navbar>
+          <HeroContent>
+            <HeroText>Build With Love</HeroText>
+            <HeroHeading>
+              We Create <br />
+              Memories to Remember
+            </HeroHeading>
+          </HeroContent>
+        </HeroSectionDesk>
+        <Greeting id="1">
+          <Hello>Hello Dear</Hello>
+          <Farm>We Are Farmhousing!</Farm>
+          <Star />
+        </Greeting>
+        <About>Come create memories with Us!!!</About>
+        <ImageDiv>
+          <div
+            onClick={() => {
+              setImage(Img1);
+              setModel(true);
+            }}
+          >
+            <Images img={Img1} />
           </div>
-          <div>
-            <NavItems href="#1">About</NavItems>
+          <div
+            onClick={() => {
+              setImage(Img2);
+              setModel(true);
+            }}
+          >
+            <Images img={Img2} />
           </div>
-          <div>
-            <NavItems href="#2">Services</NavItems>
+          <div
+            onClick={() => {
+              setImage(Img3);
+              setModel(true);
+            }}
+          >
+            <Images img={Img3} />
           </div>
-          <div>
-            <Name>Jalsa</Name>
+          <div
+            onClick={() => {
+              setImage(Img4);
+              setModel(true);
+            }}
+          >
+            <Images img={Img4} />
           </div>
-          <div>
-            <NavItems href="#3">Feature</NavItems>
+          <div
+            onClick={() => {
+              setImage(Img5);
+              setModel(true);
+            }}
+          >
+            <Images img={Img5} />
           </div>
-          <div>
-            <NavItems href="#4">Contact Us</NavItems>
+          <div
+            onClick={() => {
+              setImage(Img6);
+              setModel(true);
+            }}
+          >
+            <Images img={Img6} />
           </div>
-          <div onClick={disableScroll}>
-            <NavBtn>Book Now</NavBtn>
+          <div
+            onClick={() => {
+              setImage(Img7);
+              setModel(true);
+            }}
+          >
+            <Images img={Img7} />
           </div>
-        </Navbar>
-        <HeroContent>
-          <HeroText>Build With Love</HeroText>
-          <HeroHeading>
-            We Create <br />
-            Memories to Remember
-          </HeroHeading>
-        </HeroContent>
-      </HeroSectionDesk>
-      <Greeting id="1">
-        <Hello>Hello Dear</Hello>
-        <Farm>We Are Farmhousing!</Farm>
-        <Star />
-      </Greeting>
-      <About>Come create memories with Us!!!</About>
-      <ImageDiv>
-        <Images img={Img1} />
-        <Images img={Img2} />
-        <Images img={Img3} />
-        <Images img={Img4} />
-        <Images img={Img5} />
-        <Images img={Img6} />
-        <Images img={Img7} />
-      </ImageDiv>
-      <Greeting id="2">
-        <Hello>Hello Dear</Hello>
-        <Farm>Notable Amenities</Farm>
-        <Star />
-      </Greeting>
-      <About>
-        "We have the best of Amenities to make your stay comfortable and
-        relaxing"
-      </About>
-      <AmenitiesDiv>
-        <AmenitiesInfo
-          content="Clean & beautiful swimming pool."
-          title="Swimming Pool"
-        />
-        <AmenitiesImg img={Swim} />
-        <AmenitiesInfo
-          content="We keep the safe of our kids at the top."
-          title="Kid Swimming Pool"
-        />
-        <AmenitiesImg img={Back} />
-        <AmenitiesImg right img={View} />
-        <AmenitiesInfo
-          content="We provide you an escape from your polluted cities."
-          title="Flora"
-        />
-        <AmenitiesImg right img={Lake} />
-        <AmenitiesInfo
-          content="We have a lake just beside our farm house where you can enjoy the scenic view."
-          title="Lake View"
-        />
+        </ImageDiv>
+        <Greeting id="2">
+          <Hello>Hello Dear</Hello>
+          <Farm>Notable Amenities</Farm>
+          <Star />
+        </Greeting>
+        <About>
+          "We have the best of Amenities to make your stay comfortable and
+          relaxing"
+        </About>
+        <AmenitiesDiv>
+          <AmenitiesInfo
+            content="Clean & beautiful swimming pool."
+            title="Swimming Pool"
+          />
+          <div
+            onClick={() => {
+              setImage(Swim);
+              setModel(true);
+            }}
+          >
+            <AmenitiesImg img={Swim} />
+          </div>
+          <AmenitiesInfo
+            content="We keep the safe of our kids at the top."
+            title="Kid Swimming Pool"
+          />
+          <div
+            onClick={() => {
+              setImage(Back);
+              setModel(true);
+            }}
+          >
+            <AmenitiesImg img={Back} />
+          </div>
+          <div
+            onClick={() => {
+              setImage(View);
+              setModel(true);
+            }}
+          >
+            <AmenitiesImg right img={View} />
+          </div>
+          <AmenitiesInfo
+            content="We provide you an escape from your polluted cities."
+            title="Flora"
+          />
+          <div
+            onClick={() => {
+              setImage(Lake);
+              setModel(true);
+            }}
+          >
+            <AmenitiesImg right img={Lake} />
+          </div>
+          <AmenitiesInfo
+            content="We have a lake just beside our farm house where you can enjoy the scenic view."
+            title="Lake View"
+          />
 
-        <BackImg />
-      </AmenitiesDiv>
-      {/* <ReviewsSection>
+          <BackImg />
+        </AmenitiesDiv>
+        {/* <ReviewsSection>
         <TriangleImg src={Triangle} className="top" />
         <TriangleImg src={Triangle} className="bottom" />
 
@@ -615,43 +723,44 @@ const Home = () => {
         </Carousel>
       </ReviewsSection> */}
 
-      <OfferSection />
-      <Greeting id="3">
-        <Hello>Hello Dear</Hello>
-        <Farm>Best Features!</Farm>
-        <Star />
-      </Greeting>
-      <Features>
-        <FeatureDiv>
-          <FeatureLogo>
-            <box-icon name="desktop"></box-icon>
-          </FeatureLogo>
-          <FeatureTitle>Dedicated Workspace</FeatureTitle>
-          <FeatureInfo>
-            A private room with wifi that’s well suited for working.
-          </FeatureInfo>
-        </FeatureDiv>
-        <FeatureDiv>
-          <FeatureLogo>
-            <box-icon name="desktop"></box-icon>
-          </FeatureLogo>
-          <FeatureTitle>Great check-in experience</FeatureTitle>
-          <FeatureInfo>
-            92% of recent guests gave the check-in process a 5-star rating.
-          </FeatureInfo>
-        </FeatureDiv>
-        <FeatureDiv>
-          <FeatureLogo>
-            <box-icon name="desktop"></box-icon>
-          </FeatureLogo>
-          <FeatureTitle>Self check-in</FeatureTitle>
-          <FeatureInfo>Check yourself in with the lockbox.</FeatureInfo>
-        </FeatureDiv>
-      </Features>
-      <div id="4">
-        <Footer />
-      </div>
-    </Container>
+        {/* <OfferSection /> */}
+        <Greeting id="3">
+          <Hello>Hello Dear</Hello>
+          <Farm>Best Features!</Farm>
+          <Star />
+        </Greeting>
+        <Features>
+          <FeatureDiv>
+            <FeatureLogo>
+              <box-icon name="desktop"></box-icon>
+            </FeatureLogo>
+            <FeatureTitle>Dedicated Workspace</FeatureTitle>
+            <FeatureInfo>
+              A private room with wifi that’s well suited for working.
+            </FeatureInfo>
+          </FeatureDiv>
+          <FeatureDiv>
+            <FeatureLogo>
+              <box-icon name="desktop"></box-icon>
+            </FeatureLogo>
+            <FeatureTitle>Great check-in experience</FeatureTitle>
+            <FeatureInfo>
+              92% of recent guests gave the check-in process a 5-star rating.
+            </FeatureInfo>
+          </FeatureDiv>
+          <FeatureDiv>
+            <FeatureLogo>
+              <box-icon name="desktop"></box-icon>
+            </FeatureLogo>
+            <FeatureTitle>Self check-in</FeatureTitle>
+            <FeatureInfo>Check yourself in with the lockbox.</FeatureInfo>
+          </FeatureDiv>
+        </Features>
+        <div id="4">
+          <Footer />
+        </div>
+      </Container>
+    </>
   );
 };
 
