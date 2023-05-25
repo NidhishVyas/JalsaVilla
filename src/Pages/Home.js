@@ -54,12 +54,13 @@ const HeroSectionMob = styled.section`
   background-color: #000;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 18% center;
   height: 70vh;
   width: auto;
   position: relative;
   @media ${(props) => props.theme.MediaQueries.l.query} {
     display: none;
+  background-position: center;
   }
 `;
 
